@@ -115,8 +115,10 @@ function removeFalsyValues(arr) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  return arr.map((element) => {
+    return element.length;
+  }, []);
 }
 
 /**
@@ -133,8 +135,13 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (!arr || arr.length === 0) return 0;
+  return parseFloat(
+    (arr.reduce((summ, element) => summ + element, 0) / arr.length)
+      .toFixed(2)
+      .replace(/\.?0*$/, '')
+  );
 }
 
 /**
@@ -147,8 +154,11 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const initialLenght = arr ? arr[0].length : 0;
+  return arr.every((element) => {
+    return element.length === initialLenght;
+  });
 }
 
 /**
